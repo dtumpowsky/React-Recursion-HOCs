@@ -1,17 +1,18 @@
 import * as React from 'react';
 import './App.css';
 import logo from './assets/elevar-logo.png';
-import ListItem from './ListItem';
+import  AlphaList from './AlphaList';
+import {listSort} from './ListModel'
 
 class App extends React.Component<{}, {}> {
   public render() {
     
   const tree = [
     {
-      "text": "Folder 1",
+      "text": "bFolder 1",
       "children": [
         {
-          "text": "Sub Folder 1",
+          "text": "bSub Folder 1",
           "children": [
             {
               "text": "Sub Sub Folder 1"          
@@ -19,14 +20,18 @@ class App extends React.Component<{}, {}> {
           ]
         },
         {
-          "text": "Sub Folder 2",
+          "text": "aSub Folder 2",
           "children": []
         }
       ]
+    },
+    {
+      "text": "aFolder 2",
+      "children": []
     }
   ]
-  
-  let list = tree.map((item, i) => <ListItem key={i} text={item.text} children={item.children}></ListItem>)
+  const sorted = listSort(tree);
+  let list = sorted.map((item, i) => <AlphaList key={i} text={item.text} children={item.children}></AlphaList>)
   
     return (
       <div className="App">
