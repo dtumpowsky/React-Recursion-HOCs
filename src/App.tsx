@@ -2,8 +2,7 @@ import * as React from 'react';
 import './App.css';
 import logo from './assets/elevar-logo.png';
 import  Collapsable from './Collapsable';
-import AlphaList from './AlphaList';
-import {listSort} from './ListModel';
+import AlphaList, {listSort} from './AlphaList';
 
 class App extends React.Component<{}, {}> {
   public render() {
@@ -47,24 +46,23 @@ class App extends React.Component<{}, {}> {
   ]
   
   const sorted = listSort(tree);
-  let list = tree.map((item, i) => <Collapsable key={i} text={item.text} children={item.children}></Collapsable>)
-  
   let list2 = sorted.map((item, i) => <AlphaList key={i} text={item.text} children={item.children}></AlphaList>)
+  
+  let list = tree.map((item, i) => <Collapsable key={i} text={item.text} children={item.children}></Collapsable>)
   
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
-        <div>
-          <h4 className='component-header'>Collapsable</h4>
-          {list}     
-        </div>
-
-        <div>
-          <h4 className='component-header'>Sorted Alphabetically</h4>
-          {list2}     
-        </div>
+        <h4 className='component-header'>Collapsable</h4>
+          <div className="collapsable-elm">
+            {list}     
+          </div>
+        <h4 className='component-header'>Sorted Alphabetically</h4>
+          <div>
+            {list2}     
+          </div>
       </div>
     );
   }

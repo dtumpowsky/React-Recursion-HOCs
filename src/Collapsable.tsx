@@ -18,7 +18,6 @@ class Collapsable extends React.Component<IListObject, IHiddenState> {
         this.setState({
           isHidden: !this.state.isHidden
         })
-        console.log(this.state.isHidden)
       }
 
   public render() {
