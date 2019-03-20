@@ -1,4 +1,4 @@
-# React-Recursion Front End Exercise
+# React-Recursion & HOC Front End Exercise
 
 ## By David Tumpowsky
 
